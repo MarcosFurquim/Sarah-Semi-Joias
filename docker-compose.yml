@@ -6,7 +6,7 @@ services:
     ports:
       - '3306:3306'
     volumes:
-      - ./db/:/db/
+      - sarah-db:/db/
       #- ./db/data.sql:/docker-entrypoint-initdb.d/data.sql
     environment:
       MYSQL_HOST: localhost
@@ -24,4 +24,6 @@ services:
       - mysql
     environment:
       - teste=oi
+volumes:
+  sarah-db
     
