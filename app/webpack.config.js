@@ -12,8 +12,13 @@ module.exports = {
     rules: [
       {
         test: /\.scss$/,
-        use: [
-            MiniCssExtractPlugin.loader,
+        use: [{
+          loader:  MiniCssExtractPlugin.loader,
+            options: {
+              publicPath: path.resolve(__dirname, 'style/dist')
+            }
+          }
+           ,
             'css-loader', 
             'sass-loader',
         ],
@@ -23,8 +28,7 @@ module.exports = {
   plugins: [
       new MiniCssExtractPlugin({
           filename: 'style.css',
-          chunkFilename: '[id].css',
-          path: path.resolve(__dirname, 'style/dist')
+          chunkFilename: '[id].css'
         })
   ]
 };
