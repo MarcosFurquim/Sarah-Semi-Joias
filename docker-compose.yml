@@ -1,0 +1,27 @@
+version: '2'
+services:
+  mysql:
+    image: mariadb:10.5
+    container_name: sarah-joias_mysql
+    ports:
+      - '3306:3306'
+    volumes:
+      - ./db/:/db/
+      #- ./db/data.sql:/docker-entrypoint-initdb.d/data.sql
+    environment:
+      MYSQL_HOST: localhost
+      MYSQL_ROOT_PASSWORD: 123
+  php:
+    image: php:7.2-apache
+    container_name: sarah-joias_php
+    ports: 
+      - '8888:80'
+    volumes:
+      - ./app:/var/www/html
+    depends_on:
+      - mysql
+    links:
+      - mysql
+    environment:
+      - teste=oi
+    

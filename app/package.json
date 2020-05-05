@@ -1,0 +1,29 @@
+{
+  "name": "sarah-semi-joias",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MarcosFurquim/Sarah-Semi-Joias.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MarcosFurquim/Sarah-Semi-Joias/issues"
+  },
+  "homepage": "https://github.com/MarcosFurquim/Sarah-Semi-Joias#readme",
+  "dependencies": {
+    "bootstrap": "^4.4.1",
+    "jquery": "^3.5.1",
+    "popper": "^1.0.1",
+    "popper.js": "^1.16.1",
+    "webpack": "^4.43.0"
+  },
+  "devDependencies": {
+    "webpack-cli": "^3.3.11"
+  }
+}
