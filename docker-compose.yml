@@ -1,4 +1,4 @@
-version: '2'
+version: '3'
 services:
   mysql:
     image: mariadb:10.5
@@ -6,13 +6,14 @@ services:
     ports:
       - '3306:3306'
     volumes:
-      - sarah-db:/db/
+      - sarah-db:/var/lib/mysql
       #- ./db/data.sql:/docker-entrypoint-initdb.d/data.sql
     environment:
       MYSQL_HOST: localhost
       MYSQL_ROOT_PASSWORD: 123
   php:
-    image: php:7.2-apache
+    build:
+      context: ./php
     container_name: sarah-joias_php
     ports: 
       - '8888:80'
@@ -25,5 +26,5 @@ services:
     environment:
       - teste=oi
 volumes:
-  sarah-db
+  sarah-db:
     

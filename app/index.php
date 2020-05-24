@@ -1,6 +1,4 @@
-<?php
-//var_dump(getenv('teste'));
-?>
+
 <html>
 <head>
     <meta charset="utf-8">
