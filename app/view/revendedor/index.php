@@ -1,7 +1,6 @@
 Revendedor View
 <?php
-require_once (dirname(__DIR__).'/model/Revendedor.php');
-$revendedor = Revendedor::getRevendedor(1);
+
 //$revendedor_new = new Revendedor('Teste', 'markinfurkin@gmail.com','488854645645');
 //var_dump($revendedor_new);
 //$revendedor_new->cadastaRevendedor();
@@ -21,7 +20,7 @@ $revendedor = Revendedor::getRevendedor(1);
                 </div>
             </div>
             <div class="col actions">
-                <a href="./cadastraRevendedor" class="btn btn-primary">Novo</a>
+                <a href="/revendedor/novo" class="btn btn-primary">Novo</a>
             </div>
         </div>
     </div>

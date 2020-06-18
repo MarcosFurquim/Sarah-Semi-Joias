@@ -23,8 +23,24 @@ class Revendedor {
 	
 	public static function getRevendedor($idRevendedor) {
 		require_once (dirname(__DIR__).'/lib/libdba.php');
-		$conexaoCantina = conectaDB();
-		$revendedor = $conexaoCantina->get("revendedor", "*",["id" => $idRevendedor]);
+		$conexao = conectaDB();
+		$revendedor = $conexao->get("revendedor", "*",["id" => $idRevendedor]);
 		return $revendedor;
-    }
+	}
+	
+	public static function getRevendedores($filtro = null, $pagindex = 0) {
+		require_once (dirname(__DIR__).'/lib/libdba.php');
+		$conexao = conectaDB();
+		$numArgs = (int)func_num_args();
+        $args = func_get_args();
+		 if($numArgs == 2){
+			$revendedores = $conexao->select("revendedor", "*",["nome[~]" =>"%".$args[0]."%", "LIMIT" => [$args[1], 10],"ORDER" => "nome"]);
+		} else if($numArgs == 1){
+			$revendedores = $conexao->select("revendedor", "*",["nome[~]" =>"%".$args[0]."%","ORDER" => "nome"]);
+		} else {
+			$revendedores = $conexao->select("revendedor", "*",["ORDER" => "nome"]);
+		}
+		//var_dump($conexaoCantina->log());
+		return $revendedores;
+	}
 }
