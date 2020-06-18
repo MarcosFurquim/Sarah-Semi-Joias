@@ -6,6 +6,8 @@ php_value display_errors 1
     RewriteEngine On
     #RewriteCond %{REQUEST_FILENAME} !-d
     #RewriteCond %{REQUEST_FILENAME} -f
+    RewriteRule ^(?!api)([a-z]+)/?([a-z]+)?/?$ index.php?control=$1&view=$2 [NC,L]
+
     RewriteCond %{REQUEST_FILENAME} !index.php
-    RewriteRule ^([a-z]+)/?$ index.php?page=$1 [NC,L]
+    RewriteRule ^api\/([a-z]+)/?([0-9]+)?/?$ index.php?api=1&control=$1&id=$2 [NC,L]
 </IfModule>
